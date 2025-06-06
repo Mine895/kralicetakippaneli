@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kraliçenin Gelişmiş Ekip Takip Paneli</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #000000, #1c1c1c);
+      padding: 40px;
+      color: gold;
+    }
+    h1, h2 {
+      text-align: center;
+      color: gold;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: #111;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .form-row input, .form-row select {
+      flex: 1;
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid gold;
+      border-radius: 10px;
+      background: #222;
+      color: gold;
+    }
+    button {
+      background: gold;
+      color: black;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #222;
+      color: gold;
+    }
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid gold;
+    }
+    th {
+      background: #333;
+    }
+    #searchBox {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid gold;
+      background: #222;
+      color: gold;
+    }
+    canvas {
+      margin-top: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>👑 Kraliçenin Gelişmiş Ekip Takip Paneli</h1>
+  <div class="container">
+    <input type="text" id="searchBox" onkeyup="filtrele()" placeholder="İsim, Ünvan veya Ürün ara...">
+    <div class="form-row">
+      <input type="text" id="isim" placeholder="Üye İsmi">
+      <input type="date" id="hedefBaslangic">
+      <input type="date" id="hedefBitis">
+      <input type="number" id="ciroBaslangic" placeholder="Başlangıç Cirosu">
+      <input type="number" id="ciroBitis" placeholder="Bitiş Cirosu">
+    </div>
+    <div class="form-row">
+      <input type="number" id="puanBaslangic" placeholder="Başlangıç Puanı">
+      <input type="number" id="puanBitis" placeholder="Bitiş Puanı">
+      <input type="number" id="yeniKayit" placeholder="Yeni Kayıt Sayısı">
+      <input type="text" id="unvan" placeholder="Ünvan">
+      <input type="text" id="tesvik" placeholder="Teşvik Hediyesi">
+    </div>
+    <div class="form-row">
+      <input type="text" id="satislar" placeholder="En Çok Satılan Ürünler">
+      <input type="text" id="rozet" placeholder="Kazanılan Rozet (Örn: Altın Kraliçe)">
+      <input type="text" id="aciklama" placeholder="Açıklama / Not">
+    </div>
+    <div class="form-row">
+      <button onclick="uyeEkle()">Üye Ekle</button>
+      <button onclick="disAktarPDF()">PDF Aktar</button>
+      <button onclick="disAktarExcel()">Excel Aktar</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>İsim</th>
+          <th>Hedef Tarihi</th>
+          <th>Ciro Artışı</th>
+          <th>Puan Artışı</th>
+          <th>Yeni Kayıt</th>
+          <th>Ünvan</th>
+          <th>Teşvik</th>
+          <th>Satışlar</th>
+          <th>Rozet</th>
+          <th>Açıklama</th>
+        </tr>
+      </thead>
+      <tbody id="uyeTablosu"></tbody>
+    </table>
+    <h2>🏆 En Başarılı 10 Üye (Ciro Artışına Göre)</h2>
+    <ol id="enBasariliListe"></ol>
+
+    <h2>📊 Tarihe Göre Ciro ve Puan Analizi</h2>
+    <canvas id="grafikChart" width="800" height="400"></canvas>
+
+    <h2>📘 Öğrenme Analizi ve Seviye Rozetleri</h2>
+    <ul>
+      <li><b>🟡 Başlangıç Rozeti:</b> İlk görevi tamamladı.</li>
+      <li><b>🟢 Gelişim Rozeti:</b> 5 içerik üretti, 3 toplantıya katıldı.</li>
+      <li><b>🔵 Uzmanlık Rozeti:</b> 10 görev, 5 toplantı, 2 eğitim verdi.</li>
+      <li><b>🟣 Kraliçe Rozeti:</b> Tüm sistemi öğrendi ve ekip yönetti.</li>
+    </ul>
+  </div>
+
+  <script>
+    // Buraya Chart.js grafikleri ve analiz algoritmaları eklenebilir
+  </script>
+</body>
+</html>
